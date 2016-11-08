@@ -1,0 +1,53 @@
+﻿@{
+    Layout = "~/Views/Shared/DefaultLayoutPage.cshtml";
+}
+
+@section TitleContent {@ViewData["title"]}
+
+@section CanonicalContent {@ViewData["canonical_url"]}
+
+<div id="content">
+    @foreach (mono_blog.Models.Post post in ViewData["posts"] as System.Collections.Generic.List<mono_blog.Models.Post>)
+    {
+        <div class="post post-text clearfix">
+            <div class="post-meta">
+                <a class="post-date" href="@post.url">
+                    <span class="post-date-month">@post.month </span>
+                    <span class="post-date-day">@post.day </span>
+                    <span class="post-date-year">@post.year</span>
+                </a>
+            </div>
+
+            <div class="post-body">
+                <div class="post-content">
+                    <h2 class="post-title">
+                        <a href="@post.url">@post.title_cn</a>
+                    </h2>
+                    <div class="rich-content">
+                        <div class="text-summary">
+                            @post.short_content
+                        </div>
+                        <div class="text-more">
+                            <a class="post-plink" href="@post.url">继续阅读»</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="post-extra clearfix">
+                    <div class="post-link-wrap">
+                        <!--                         <a class="post-plink" href="">0 热度</a>
+                                                <span class="pipe">|</span> -->
+                        <a class="post-plink" href="@post.url">全文链接</a>
+                    </div>
+                    <!--                     <div class="post-tag">
+                                            <a href="post.url">#</a>
+                                        </div> -->
+                </div>
+            </div>
+        </div>
+        }
+
+        <div id="pagination" class="normal-pagination">
+            <a href="@ViewData["last_page_url"]" id="pager-prev">@ViewData["last_page_text"]</a>
+            <a href="@ViewData["next_page_url"]" id="pager-next">@ViewData["next_page_text"]</a>
+        </div>
+</div>

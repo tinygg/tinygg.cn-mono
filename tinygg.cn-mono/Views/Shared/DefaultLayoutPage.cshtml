@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>@RenderSection("TitleContent", false)</title>
+    <meta name="description" content="我是四道风.">
+    <link rel="shortcut icon" type="image/jpeg" href="/image/TINY_16.PNG">
+    <link rel="stylesheet" type="text/css" href="/css/default.css">
+    <link rel='canonical' href='@RenderSection("CanonicalContent",false)' />
+    <style>
+        body {
+            background-image: url(/image/BG.PNG);
+        }
+
+        #wrap {
+            background-image: url(/image/TOP_LEFT.PNG);
+            background-position: left top;
+        }
+
+        a {
+            color: #E53843;
+        }
+
+            a:hover {
+                color: #363D3F;
+            }
+
+        .post-body, .post-date, .nav-item, #pagination a {
+            background-color: #FFF;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header-wrap">
+            <div id="header" class="clearfix">
+                <div id="nav">
+                    <a href="/archive" id="nav-archive" class="nav-item">存档</a>
+                    <a href="/inbox" id="nav-inbox" class="nav-item">私信</a>
+                    <div id="nav-search-wrap">
+                        <span id="nav-search" class="nav-item">搜索</span>
+                        <form id="nav-search-form">
+                            <input id="nav-search-input" style="display:none" type="text">
+                        </form>
+                    </div>
+                </div>
+                <div id="blog-info">
+                    <h1 id="blog-name">
+                        <a href="/">四道风’s 博客</a>
+                    </h1>
+                    <div id="blog-desc">
+                        <a class="github-button" href="https://github.com/tinygg/tinygg.cn" aria-label="Star tinygg/tinygg.cn on GitHub">Star</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        @RenderBody()
+
+        <div id="footer">
+            <div class="copyright"><a href="/">四道风’s 博客</a> © ALL RIGHT RESERVED. </div>
+        </div>
+    </div>
+    <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+</body>
+</html>
